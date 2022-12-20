@@ -1,6 +1,6 @@
 import { lazy } from "react"
 
-const Header= lasy(()=>import("./Header/header"))
+const Header= lazy(()=>import("./Header/header"))
 
 
 export {Header}

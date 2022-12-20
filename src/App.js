@@ -3,7 +3,7 @@ import React, { Suspense, useEffect } from "react";
 import { Header } from "./components";
 const Loader = () => {
   return (
-    <Skeleton variant="rectangular" width={210} height={60} animation="wave" />
+    <Skeleton variant="rounded" sx={{ bgcolor: 'grey.900' }} width={210} height={60} animation="wave" />
   );
 };
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
   });
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader/>}>
         <Header />
       </Suspense>
       <Loader />
