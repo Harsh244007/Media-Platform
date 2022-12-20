@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { Skeleton } from "@mui/material";
+import React, { Suspense, useEffect } from "react";
+import { Header } from "./components";
+const Loader = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Skeleton variant="rectangular" width={210} height={60} animation="wave" />
   );
-}
+};
+const App = () => {
+  useEffect(() => {
+    console.log = {};
+    console.warn = {};
+  });
+  return (
+    <>
+      <Suspense fallback={<Loader />}>
+        <Header />
+      </Suspense>
+      <Loader />
+    </>
+  );
+};
 
 export default App;
