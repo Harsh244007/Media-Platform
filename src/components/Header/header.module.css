@@ -1,4 +1,10 @@
 .HeaderSection{
     padding: 0px;
     padding-left: 14px;
+    display: flex;
+    flex-direction: row;
+}
+.logoImage{
+max-width: 30px;
+max-height: 30px;
 }

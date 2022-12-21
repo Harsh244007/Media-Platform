@@ -2,6 +2,7 @@ import { Skeleton } from "@mui/material";
 import React, { Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Banner, Header, Login, Signup } from "./components";
+import Copyright from "./components/Common/copyright";
 const Loader = () => {
   return <Skeleton variant="rounded" sx={{ bgcolor: "grey.250", m: 1, my: 0.5 }} height={260} animation="pulse" />;
 };
@@ -23,6 +24,7 @@ const App = () => {
             <>
               <Suspense fallback={<Loader />}>
                 <Banner />
+                <Copyright/>
               </Suspense>
             </>
           }
