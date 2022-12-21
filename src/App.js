@@ -1,10 +1,9 @@
 import { Skeleton } from "@mui/material";
 import React, { Suspense, useEffect } from "react";
-import { Banner, Header } from "./components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Banner, Header, Login, Signup } from "./components";
 const Loader = () => {
-  return (
-    <Skeleton variant="rounded" sx={{ bgcolor: 'grey.250',m:1,my:0.5 }} height={260} animation="wave" />
-  );
+  return <Skeleton variant="rounded" sx={{ bgcolor: "grey.250", m: 1, my: 0.5 }} height={260} animation="pulse" />;
 };
 const App = () => {
   useEffect(() => {
@@ -12,15 +11,42 @@ const App = () => {
     console.warn = {};
   });
   return (
-    <>
-      <Suspense fallback={<Loader/>}>
+    <BrowserRouter>
+      <Suspense fallback={<Loader />}>
         <Header />
       </Suspense>
-      <Suspense fallback={<Loader/>}>
-        <Banner />
-      </Suspense>
-      <Loader />
-    </>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <Suspense fallback={<Loader />}>
+                <Banner />
+              </Suspense>
+            </>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/login"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Login />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/signup"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Signup />
+            </Suspense>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

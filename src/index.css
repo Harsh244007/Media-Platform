@@ -1,8 +1,15 @@
 body {
   margin: 0;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 code {
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
+}
+a,a:-webkit-any-link {
+  text-decoration: none !important;
+  color: black;
+}
+a:hover{
+  color: rgb(132, 113, 5);
 }
