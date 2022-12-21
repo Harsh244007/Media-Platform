@@ -1,9 +1,9 @@
 import { Skeleton } from "@mui/material";
 import React, { Suspense, useEffect } from "react";
-import { Header } from "./components";
+import { Banner, Header } from "./components";
 const Loader = () => {
   return (
-    <Skeleton variant="rounded" sx={{ bgcolor: 'grey.250' }} height={260} animation="wave" />
+    <Skeleton variant="rounded" sx={{ bgcolor: 'grey.250',m:1,my:0.5 }} height={260} animation="wave" />
   );
 };
 const App = () => {
@@ -15,6 +15,9 @@ const App = () => {
     <>
       <Suspense fallback={<Loader/>}>
         <Header />
+      </Suspense>
+      <Suspense fallback={<Loader/>}>
+        <Banner />
       </Suspense>
       <Loader />
     </>
