@@ -3,7 +3,7 @@ import React, { Suspense, useEffect } from "react";
 import { Header } from "./components";
 const Loader = () => {
   return (
-    <Skeleton variant="rounded" sx={{ bgcolor: 'grey.900' }} width={210} height={60} animation="wave" />
+    <Skeleton variant="rounded" sx={{ bgcolor: 'grey.250' }} height={260} animation="wave" />
   );
 };
 const App = () => {
