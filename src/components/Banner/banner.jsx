@@ -30,7 +30,7 @@ const Banner = () => {
     },
   ];
   return (
-    <Carousel className={styles.carousel} navButtonsAlwaysVisible="true" animation="slide" NextIcon={<NavigateNextOutlinedIcon />} PrevIcon={<NavigateBeforeOutlinedIcon />}>
+    <Carousel className={styles.carousel} navButtonsAlwaysVisible="true" animation="slide" interval="5000" NextIcon={<NavigateNextOutlinedIcon />} PrevIcon={<NavigateBeforeOutlinedIcon />}>
       {videoProperties.map((videoObj) => {
         return (
           <Card raised={true} className={styles.CarousalItem} style={{ margin: "auto", maxHeight: 380, minWidth: 300, width: "100%", gap: 10 }}>
