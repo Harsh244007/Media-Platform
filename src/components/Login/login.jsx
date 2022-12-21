@@ -13,10 +13,18 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import Copyright from '../Common/copyright';
+import { IconButton, InputAdornment } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const theme = createTheme();
 
 const Login=()=> {
+
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword)
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -77,9 +85,22 @@ const Login=()=> {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
+                type={showPassword ?"text":"password"}
                 id="password"
                 autoComplete="current-password"
+                InputProps={{ 
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
