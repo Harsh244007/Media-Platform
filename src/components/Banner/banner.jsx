@@ -1,5 +1,5 @@
-import { Card, CardMedia } from "@mui/material";
-import React from "react";
+import { Card, CardActionArea, CardMedia } from "@mui/material";
+import React, { useEffect, useRef } from "react";
 import Carousel from "react-material-ui-carousel";
 import styles from "./banner.module.css";
 import vid1s from "./videos/vid1s.mp4";
@@ -9,6 +9,10 @@ import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
 import NavigateBeforeOutlinedIcon from "@mui/icons-material/NavigateBeforeOutlined";
 
 const Banner = () => {
+  const vidRef = useRef();
+  useEffect(() => {
+    vidRef.current.play();
+  }, [vidRef]);
   const videoProperties = [
     {
       id: 1,
@@ -30,11 +34,11 @@ const Banner = () => {
     },
   ];
   return (
-    <Carousel className={styles.carousel} navButtonsAlwaysVisible="true" animation="slide" interval="5000" NextIcon={<NavigateNextOutlinedIcon />} PrevIcon={<NavigateBeforeOutlinedIcon />}>
+    <Carousel className={styles.carousel} navButtonsAlwaysVisible="true" animation="slide" interval="10000" NextIcon={<NavigateNextOutlinedIcon />} PrevIcon={<NavigateBeforeOutlinedIcon />}>
       {videoProperties.map((videoObj) => {
         return (
           <Card raised={true} className={styles.CarousalItem} style={{ margin: "auto", maxHeight: 380, minWidth: 300, width: "100%", gap: 10 }}>
-            <CardMedia autoplay component="video" sx={{ display: "flex", padding: "20", minHeight: 200, maxHeight: 300, objectFit: "cover" }} image={videoObj.src} alt="Home Banner" />
+              <video className={styles.videoPlayer} ref={vidRef} src={videoObj.src} muted autoPlay loop />
           </Card>
         );
       })}
