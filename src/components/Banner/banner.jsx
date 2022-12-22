@@ -12,7 +12,12 @@ const Banner = () => {
   const vidRef = useRef();
   useEffect(() => {
     vidRef.current.play();
+        console.log(process.env.KEY)
   }, [vidRef]);
+
+  const onLoadQuery=()=>{
+    console.log(process.env.KEY)
+  }  
   const videoProperties = [
     {
       id: 1,

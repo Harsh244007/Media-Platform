@@ -8,8 +8,8 @@ const Loader = () => {
 };
 const App = () => {
   useEffect(() => {
-    console.log = {};
-    console.warn = {};
+    // console.log = {};
+    // console.warn = {};
   });
   return (
     <BrowserRouter>
