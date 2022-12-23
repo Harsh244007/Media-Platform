@@ -12,6 +12,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
+    "color": "^4.2.3",
     "mobx": "^6.7.0",
     "mobx-react": "^7.6.0",
     "persist-store": "^3.0.2",
