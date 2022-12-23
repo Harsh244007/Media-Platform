@@ -10,9 +10,11 @@ import NavigateBeforeOutlinedIcon from "@mui/icons-material/NavigateBeforeOutlin
 
 const Banner = () => {
   const vidRef = useRef();
+
+  // const [videoProperties,setVideoProperties]=useState([])
   useEffect(() => {
     vidRef.current.play();
-        console.log(process.env.KEY)
+        console.log(process.env)
   }, [vidRef]);
 
   const onLoadQuery=()=>{
